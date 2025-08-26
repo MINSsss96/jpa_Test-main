@@ -15,7 +15,7 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-// BaesEntity의 ToString 호출
+// BaseEntity의 ToString 호출
 @ToString(callSuper = true)
 public class UserTest extends BaseEntity{
     @Id
