@@ -1,6 +1,8 @@
 package com.my.jpaTest.service;
 
+import com.my.jpaTest.entity.Child;
 import com.my.jpaTest.entity.Member;
+import com.my.jpaTest.entity.Parent;
 import com.my.jpaTest.entity.Team;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
@@ -63,6 +65,35 @@ public class RelationTestService {
 
     }
 
+    public void saveChildren(){
+        // 자식 생성
+        Child c1 = new Child();
+        Child c2 = new Child();
+
+        // 부모 생성
+        Parent p = new Parent();
+
+        // 자식에 부모 할당
+        c1.setParent(p);
+        c2.setParent(p);
+
+        // 부모의 자식 리스트만들기
+        p.getChildren().add(c1);
+        p.getChildren().add(c2);
+
+        // 부모를 저장 -> 자식들도 따라 저장됨
+        // Cascade.Persist 로 설정 되어 있기 때문
+        em.persist(p);
 
 
+        // 1번 자식 저장
+
+        // 2번 자식 저장
+
+    }
+
+    public void deleteParent(){
+        Parent p = em.find(Parent.class, 1L);
+        em.remove(p);
+    }
 }
