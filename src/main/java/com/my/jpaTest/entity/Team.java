@@ -15,6 +15,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -27,6 +28,4 @@ public class Team {
     @OneToMany(mappedBy = "team",fetch = FetchType.EAGER)
     @Builder.Default
     private List<Member> memberList = new ArrayList<>();
-
-
 }

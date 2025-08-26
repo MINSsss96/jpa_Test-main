@@ -66,7 +66,6 @@ class RelationTestServiceTest {
 //        System.out.println("Team name : " + team.getTeamName());
 //    }
 
-
     @Test
     @DisplayName("영속성 전이 테스트")
     void persistTest(){
@@ -78,5 +77,4 @@ class RelationTestServiceTest {
     void removeTest(){
     relationTestService.deleteParent();
     }
-
 }
