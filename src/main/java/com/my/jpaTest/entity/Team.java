@@ -5,20 +5,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Team {
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamId='" + teamId + '\'' +
+                ", teamName='" + teamName + '\'' +
+                '}';
+    }
+
     @Id
     private String teamId;
     private String teamName;
