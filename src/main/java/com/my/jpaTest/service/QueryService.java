@@ -49,8 +49,13 @@ public class QueryService {
 
     //씨름팀 인원 수 구하기
     public Long teamCount(){
+ feature/jpql_1
         String sql = "SELECT COUNT(m.memberId) FROM Member m "
                 + "WHERE m.team.teamName LIKE :teamName";
+
+        String sql = "SELECT COUNT(m) FROM member m "
+                + " WHERE m.team.teamName Like :teamName";
+ main
         Query query = em.createQuery(sql)
                 .setParameter("teamName", "씨름%");
         Long result = (Long) query.getSingleResult();
