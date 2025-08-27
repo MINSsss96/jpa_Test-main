@@ -49,8 +49,8 @@ public class QueryService {
 
     //씨름팀 인원 수 구하기
     public Long teamCount(){
-        String sql = "SELECT COUNT(m) FROM member m "
-                + " WHERE m.team.teamName Like :teamName";
+        String sql = "SELECT COUNT(m.memberId) FROM Member m "
+                + "WHERE m.team.teamName LIKE :teamName";
         Query query = em.createQuery(sql)
                 .setParameter("teamName", "씨름%");
         Long result = (Long) query.getSingleResult();
