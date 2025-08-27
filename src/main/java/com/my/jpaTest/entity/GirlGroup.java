@@ -14,8 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-
 public class GirlGroup {
     @Id
     private String groupId;
@@ -25,7 +23,8 @@ public class GirlGroup {
     Entertainment entertainment;
 
     @Builder.Default
-    @OneToMany(mappedBy = "girlGroup", fetch = FetchType.EAGER,
-    cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "girlGroup",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.PERSIST)
     List<IdolMember> members = new ArrayList<>();
 }
