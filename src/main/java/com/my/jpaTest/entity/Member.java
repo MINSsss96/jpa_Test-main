@@ -7,20 +7,32 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 
 public class Member {
     @Id
     private String memberId;
     private String name;
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberId='" + memberId + '\'' +
+                ", name='" + name + '\'' +
+                ", team=" + team +
+                '}';
+    }
 //    private String teamId;
 
     // 팀 정보를 갖는 연관관계를 구성
     @ManyToOne
     @JoinColumn(name = "teamId")
     private Team team;
+
 
 }
