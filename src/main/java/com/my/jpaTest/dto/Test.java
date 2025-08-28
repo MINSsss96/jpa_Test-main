@@ -1,14 +1,13 @@
 package com.my.jpaTest.dto;
 
-import jakarta.persistence.GeneratedValue;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-
+@Data
 public class Test {
-    private Long id;
-    private String name;
-
+private Long id;
+private String name;
+private String email;
+public void print(){
+    System.out.println("난 @Data가 좋아");
+}
 }
